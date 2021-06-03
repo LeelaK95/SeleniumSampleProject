@@ -2,13 +2,16 @@ WebDriver driver;
 System.setProperty("webdriver.chromedriver",driverpath+"chromedriver.exe");
 driver = new ChromeDriver();
 String url="https://www.dbs.com.sg/personal/default.page";
+//----------launch the url-----------------------//
 driver.get(url);
 driver.manage().timeouts().implicitlyWait(3000,TimeUnit.Milliseconds);
+//----------click the cards on home page----------//
 driver.findElement.(By.xpath("(//a[contains(@href,'personal/cards/')])[2]")).click();
+//----------click on credit cards-----------------//
 driver.findElement.(By.xpath("//a[contains(@href,'personal/cards/cards-comparator.page')]")).click();
 //-----black visa card check box----------
 driver.findElement.(By.xpath("//label[@for='cb1']//span")).click();
-//--------woman's world card-----------------
+//--------woman's world card check box-----------------
 driver.findElement.(By.xpath("//label[@for='cb7']//span")).click();
 //------------compare button---------------------------------
 driver.findElement.(By.xpath("//button[@id='cardCompareBtn']")).click();
@@ -16,3 +19,4 @@ String sActualText=driver.findElement.(By.xpath("//div[@class='section-seperator
 String sExpectedText="";
 Assert.assertEquals(sExpectedText,sActualText);
 System.out.println("Text is as expected");
+driver.quit();
